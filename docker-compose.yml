@@ -1,4 +1,3 @@
-version: '3.5'
 services:
   atuin:
     build:
@@ -15,7 +14,7 @@ services:
       ATUIN_DB_URI: $ATUIN_DB_URI
       ATUIN_PAGE_SIZE: $ATUIN_PAGE_SIZE
   postgresql:
-    image: postgres:14
+    image: postgres:17
     restart: unless-stopped
     volumes: # Don't remove permanent storage for index database files!
       - "./database:/var/lib/postgresql/data/"
