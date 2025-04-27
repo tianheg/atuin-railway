@@ -3,6 +3,8 @@ services:
     build:
       context: .
     restart: always
+    volumes:
+      - "./config:/config"
     links:
       - postgresql:db
     ports:
@@ -13,6 +15,7 @@ services:
       ATUIN_OPEN_REGISTRATION: $ATUIN_OPEN_REGISTRATION
       ATUIN_DB_URI: $ATUIN_DB_URI
       ATUIN_PAGE_SIZE: $ATUIN_PAGE_SIZE
+      RUST_LOG: info,atuin_server=debug
   postgresql:
     image: postgres:17
     restart: unless-stopped
